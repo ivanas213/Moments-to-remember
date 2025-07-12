@@ -13,4 +13,5 @@
     <color name="dark_pink_text">#561E3E</color>
     <color name="pink_button">#D28AB7</color>
     <color name="login_button_background">#D29FCB</color>
+    <color name="pink_stroke">#D4A8C4</color>
 </resources>
