@@ -1,0 +1,14 @@
+backend/node_modules/
+backend/.env
+backend/dist/
+backend/coverage/
+backend/*.log
+android/.gradle/
+android/build/
+android/local.properties
+android/*.iml
+android/.idea/
+android/captures/
+android/.cxx/
+android/*.apk
+android/output.json

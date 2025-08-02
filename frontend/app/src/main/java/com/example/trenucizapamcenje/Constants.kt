@@ -7,4 +7,7 @@ object Constants {
     const val wrongCredentialsError = "Greška: Uneti kredencijali nisu ispravni!"
     const val eventsTitle = "ORGANIZOVANI DOGAĐAJI"
     const val seeMore = "Pogledaj vise događaja"
+    const val phoneNumber = "Telefon: +381 64 123 45 67"
+    const val emailAddress = "Email adresa: trenutcizapamcenje@gmail.com"
+    const val workingTime = "Radno vreme :  Ponedeljak–Petak, 8–20 h"
 }

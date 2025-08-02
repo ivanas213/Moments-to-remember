@@ -1,6 +1,7 @@
 package com.example.trenucizapamcenje
 
 import android.R.attr.text
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -8,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +21,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -60,6 +63,14 @@ import retrofit2.Response
 import java.util.logging.Logger
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberDrawerState
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
+import com.example.trenucizapamcenje.ui.theme.DarkPinkText
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
@@ -130,6 +141,9 @@ class MainActivity : ComponentActivity() {
             items(eventsState) { event ->
                 EventCard(event)
             }
+            item{
+                FooterSection()
+            }
         }
     }
     @Preview(showBackground = true)
@@ -138,7 +152,7 @@ class MainActivity : ComponentActivity() {
 
         MojaTema {
             // HeaderSection(name: String, modifier: Modifier = Modifier)
-            PromotionsSection(promotionsState)
+            FooterSection()
         }
     }
     @Composable
@@ -238,7 +252,8 @@ class MainActivity : ComponentActivity() {
 
                             contentDescription = "Desna strelica",
                             modifier = Modifier.size(24.dp)
-                        )                }
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -326,6 +341,151 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+    @Composable
+    fun FooterSection(){
+        val context = LocalContext.current
+        Column(modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ){
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = Constants.seeMore,
+                    fontSize = 24.sp,
+                    fontFamily = FontFamily(Font(R.font.lunasima_regular)),
+                    color = DarkPinkText,
+                    modifier = Modifier.clickable{
+                        val intent = Intent(context, EventsActivity::class.java)
+                        context.startActivity(intent)
+                    }
+                )
+            }
 
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color(0xFFF9DCE2))
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    painter = painterResource(id = R.drawable.footer_telefon),
+                    contentDescription = "Telefon ikona",
+                    modifier = Modifier.size(24.dp)
+                )
+                Spacer(modifier = Modifier.width(12.dp))
+                Text(
+                    text = Constants.phoneNumber,
+                    fontSize = 16.sp,
+                    color = Color.Black
+                )
+            }
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    painter = painterResource(id = R.drawable.footer_email),
+                    contentDescription = "Email ikona",
+                    modifier = Modifier.size(24.dp)
+                )
+                Spacer(modifier = Modifier.width(12.dp))
+                Text(
+                    text = Constants.emailAddress,
+                    fontSize = 16.sp,
+                    color = Color.Black
+                )
+            }
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    painter = painterResource(id = R.drawable.footer_telefon),
+                    contentDescription = "Sat ikona",
+                    modifier = Modifier.size(24.dp)
+                )
+                Spacer(modifier = Modifier.width(12.dp))
+                Text(
+                    text = Constants.workingTime,
+                    fontSize = 16.sp,
+                    color = Color.Black
+                )
+            }
+        }
+
+    }
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun MainScreen() {
+        val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+        val scope = rememberCoroutineScope()
+
+        ModalNavigationDrawer(
+            drawerState = drawerState,
+            drawerContent = {
+                DrawerContent()
+            }
+        ) {
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = { Text("Prikaz bočnog menija") },
+                        navigationIcon = {
+                            IconButton(onClick = {
+                                scope.launch { drawerState.open() }
+                            }) {
+                                Icon(painter = painterResource(id = R.drawable.meni), contentDescription = "Menu")
+                            }
+                        }
+                    )
+                }
+            ) { innerPadding ->
+                MainContent(Modifier.padding(innerPadding))
+            }
+        }
+        @Composable
+        fun DrawerContent() {
+            Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .width(250.dp)
+                    .background(Color(0xFFFFEBF0)) // roze pozadina
+            ) {
+                Text(
+                    text = "Trenuci za pamćenje",
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .background(Color(0xFFEEC1D6)), // tamnija roze traka
+                    fontWeight = FontWeight.Bold
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                DrawerItem(icon = Icons.Default.LocalOffer, label = "Ponude")
+                DrawerItem(icon = Icons.Default.Notifications, label = "Obaveštenja")
+                DrawerItem(icon = Icons.Default.Event, label = "Događaji")
+                DrawerItem(icon = Icons.Default.ShoppingCart, label = "Korpa")
+                DrawerItem(icon = Icons.Default.Person, label = "Profil")
+            }
+        }
+
+        @Composable
+        fun DrawerItem(icon: ImageVector, label: String) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { /* Navigate or act */ }
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
+            ) {
+                Icon(icon, contentDescription = label, tint = Color.Black)
+                Spacer(modifier = Modifier.width(12.dp))
+                Text(text = label, fontSize = 16.sp)
+            }
+        }
+
+    }
 
 }
