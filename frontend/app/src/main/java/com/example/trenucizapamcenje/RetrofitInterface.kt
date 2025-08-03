@@ -25,6 +25,11 @@ interface RetrofitInterface {
 
     @GET("/offer/getAll")
     fun getOffers():Call<List<Offer>>
+    @PUT("/user/updateData/{userId}")
+    fun updateChildGrade(
+        @Path("userId") userId: String,
+        @Body map: HashMap<String, String>
+    ): Call<User>
 
 
 }

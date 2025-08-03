@@ -15,4 +15,17 @@ router.post("/login", async (req, res)=>{
         return res.status(500).json({"message": "Internal server error "+ error})
     }
 })
+router.put('/updateData/:id', async (req, res) => {
+    const userId = req.params.id
+    const updatedData = req.body
+
+    try {
+        const user = await User.findByIdAndUpdate(userId, updatedData, { new: true });
+        if (!user) return res.status(404).send("User not found");
+        res.send(user); 
+    } catch (err) {
+        res.status(500).send("Error updating user");
+    }
+});
+
 export default router
