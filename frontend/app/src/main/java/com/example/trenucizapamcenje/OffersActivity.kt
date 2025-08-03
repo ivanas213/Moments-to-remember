@@ -1,5 +1,7 @@
 package com.example.trenucizapamcenje
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -35,6 +37,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -42,6 +45,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.edit
 import coil.compose.AsyncImage
 import com.example.trenucizapamcenje.RetrofitInstance.retrofitInterface
 import com.example.trenucizapamcenje.models.Event
@@ -50,6 +54,7 @@ import com.example.trenucizapamcenje.ui.components.DrawerContent
 import com.example.trenucizapamcenje.ui.components.HeaderSection
 import com.example.trenucizapamcenje.ui.theme.DarkGray80
 import com.example.trenucizapamcenje.ui.theme.MojaTema
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import okhttp3.Callback
 import retrofit2.Call
@@ -117,7 +122,7 @@ class OffersActivity : ComponentActivity() {
                 OffersTitle()
             }
             items(offersState) { offer ->
-                OfferCard(offer.offerImageUrl, offer.name, offer.hall.name)
+                OfferCard(offer)
             }
         }
     }
@@ -145,19 +150,29 @@ class OffersActivity : ComponentActivity() {
 
     @Composable
     fun OfferCard(
-        imageUrl: String,
-        offerName: String,
-        hallName: String,
-        modifier: Modifier = Modifier
+        offer: Offer
     ) {
+        val context = LocalContext.current
         Column(
-            modifier = modifier.padding(16.dp),
+            modifier = Modifier.padding(16.dp).clickable{
+                val sharedPrefs = context.getSharedPreferences(Constants.prefName, MODE_PRIVATE)
+                sharedPrefs.edit {
+
+                    val gson = Gson()
+                    val offerJson = gson.toJson(offer)
+
+                    putString(Constants.prefCurrentOffer, offerJson)
+                }
+                val intent = Intent(context, OfferActivity::class.java)
+                context.startActivity(intent)
+
+            },
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             val cardWidth = 250.dp
 
             AsyncImage(
-                model = imageUrl,
+                model = offer.offerImageUrl,
                 contentDescription = "Offer Image",
                 modifier = Modifier
                     .width(cardWidth)
@@ -174,14 +189,14 @@ class OffersActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 Text(
-                    text = offerName,
+                    text = offer.name,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
                 )
 
                 Text(
-                    text = "(sala ${hallName})",
+                    text = "(sala ${offer.hall.name})",
                     fontSize = 18.sp,
                     fontFamily = FontFamily(Font(R.font.cormorant_garamond_bold)),
                     fontStyle = FontStyle.Italic,

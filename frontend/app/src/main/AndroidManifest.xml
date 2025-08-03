@@ -17,6 +17,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".OfferActivity"
+            android:exported="false"
+            android:label="@string/title_activity_event"
+            android:theme="@style/Theme.TrenuciZaPamcenje" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false"
             android:label="@string/title_activity_profile"
@@ -35,11 +40,6 @@
             android:name=".OffersActivity"
             android:exported="false"
             android:label="@string/title_activity_offers"
-            android:theme="@style/Theme.TrenuciZaPamcenje" />
-        <activity
-            android:name=".EventActivity"
-            android:exported="false"
-            android:label="@string/title_activity_event"
             android:theme="@style/Theme.TrenuciZaPamcenje" />
         <activity
             android:name=".EventsActivity"

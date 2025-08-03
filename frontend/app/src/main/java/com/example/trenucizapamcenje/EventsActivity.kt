@@ -1,5 +1,6 @@
 package com.example.trenucizapamcenje
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -48,18 +49,13 @@ import kotlinx.coroutines.CoroutineScope
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import androidx.compose.material3.ModalNavigationDrawer
-import androidx.compose.material3.rememberDrawerState
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.style.TextAlign
 import com.example.trenucizapamcenje.ui.components.DrawerContent
-import com.example.trenucizapamcenje.ui.components.HeaderSection
-import com.example.trenucizapamcenje.ui.theme.DarkPinkText
-import com.example.trenucizapamcenje.ui.theme.MediumGray
-import kotlinx.coroutines.launch
+import androidx.core.content.edit
+import com.google.gson.Gson
+
 class EventsActivity : ComponentActivity() {
     private var eventsState by mutableStateOf<List<Event>>(emptyList())
 
@@ -123,6 +119,7 @@ fun EventCard(event: Event) {
             .fillMaxWidth()
             .padding(16.dp)
             .background(PinkEventDescription)
+
     ) {
         Image(
             painter = rememberAsyncImagePainter(event.imageUrl),

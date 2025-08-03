@@ -13,4 +13,11 @@ object Constants {
     const val name = "Trenuci za pamćenje"
     const val nameCut = "Trenuci\n za pamćenje"
     const val offersTitle = "Aktuelne ponude"
+    const val prefName = "Moments_to_remember"
+    const val prefCurrentOffer = "Current offer"
+    const val appointmentConditions = "Uslovi pri zakazivanju:"
+    const val minGuests ="Minimalan broj gostiju:"
+    const val maxGuests = "Maksimalan broj gostiju:"
+    const val priceByGuest ="Cena po gostu:"
+    const val appoint = "Zakaži svoj termin"
 }
