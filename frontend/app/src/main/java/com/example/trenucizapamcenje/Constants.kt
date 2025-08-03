@@ -12,4 +12,5 @@ object Constants {
     const val workingTime = "Radno vreme :  Ponedeljak–Petak, 8–20 h"
     const val name = "Trenuci za pamćenje"
     const val nameCut = "Trenuci\n za pamćenje"
+    const val offersTitle = "Aktuelne ponude"
 }

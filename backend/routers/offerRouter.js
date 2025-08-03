@@ -37,16 +37,15 @@ router.post("/upload", (req,res)=>{
 })
 })
 
-router.get('/getAll', async(req, res) => {
-    try{
-        const offers = await Offer.find()
-        res.json(offers)
+router.get('/getAll', async (req, res) => {
+    try {
+        const offers = await Offer.find().populate('hall');
+        res.json(offers);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ error: error.message });
     }
-    catch(error){
-        console.log(error.message)
-        res.status(500).json({error:error.message})
-    }
-})
+});
 
 export default router
 

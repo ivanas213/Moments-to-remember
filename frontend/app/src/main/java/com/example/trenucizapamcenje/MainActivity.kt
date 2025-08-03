@@ -56,27 +56,22 @@ import com.example.trenucizapamcenje.models.Event
 import com.example.trenucizapamcenje.models.Promotion
 import com.example.trenucizapamcenje.ui.theme.DarkGray80
 import com.example.trenucizapamcenje.ui.theme.MojaTema
-import com.example.trenucizapamcenje.ui.theme.PinkBackground
 import com.example.trenucizapamcenje.ui.theme.PinkEventDescription
 import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.logging.Logger
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalNavigationDrawer
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
+import com.example.trenucizapamcenje.ui.components.DrawerContent
+import com.example.trenucizapamcenje.ui.components.HeaderSection
 import com.example.trenucizapamcenje.ui.theme.DarkPinkText
 import com.example.trenucizapamcenje.ui.theme.MediumGray
 import kotlinx.coroutines.CoroutineScope
@@ -140,102 +135,10 @@ class MainActivity : ComponentActivity() {
         }
 
     }
-    @Composable
-    fun DrawerItem(label: String, iconId: Int, activity: Class<out Activity>) {
-        val context = LocalContext.current
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { 
-                    val intent = Intent(context, activity)
-                    context.startActivity(intent)
-                }
-                .padding(horizontal = 16.dp, vertical = 12.dp)
-        ) {
-            Icon(
-                painter = painterResource(id = iconId),
-                contentDescription = label,
-                tint = Color.DarkGray,
-                modifier = Modifier.size(20.dp)
-            )
-
-            Spacer(modifier = Modifier.width(12.dp))
-
-            Text(
-                text = label,
-                fontSize = 16.sp,
-                color = Color.Black
-            )
-        }
-    }
-
-
-    @Composable
-    fun DrawerContent(drawerState: DrawerState, scope: CoroutineScope) {
-        Column(
-            modifier = Modifier
-                .fillMaxHeight()
-                .width(250.dp)
-                .background(Color(0xFFFFEBF0))
-                .padding(top = 24.dp)
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color(0xFFF3DCE2))
-                    .padding(horizontal = 16.dp, vertical = 12.dp)
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth().height(36.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.meni),
-                        contentDescription = "Meni",
-                        modifier = Modifier
-                            .size(28.dp)
-                            .clickable {
-                                scope.launch {
-                                    drawerState.close()
-                                }
-                            },
-                        tint = Color.DarkGray
-                    )
-                }
-            }
-            Column(modifier = Modifier.fillMaxWidth().background(PinkEventDescription),
-                horizontalAlignment = Alignment.CenterHorizontally){
-                Image(
-                    painter = painterResource(id = R.drawable.logo_veci),
-                    contentDescription = "Logo",
-                    modifier = Modifier
-                        .padding(end = 8.dp, top = 20.dp)
-                )
-                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Text(
-                        text = Constants.nameCut,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 16.dp, start = 16.dp, end = 16.dp),
-                        fontSize = 36.sp,
-                        color = MediumGray,
-                        fontFamily = FontFamily(Font(R.font.italianno_regular)),
-                        textAlign = TextAlign.Center
-                    )
-                }
-            }
 
 
 
-            DrawerItem("Ponude", R.drawable.meni_ponude, OffersActivity::class.java)
-            DrawerItem("Obaveštenja", R.drawable.meni_obavestenja, NotificationsActivity::class.java)
-            DrawerItem("Događaji", R.drawable.meni_dogadjaji, EventsActivity:: class.java)
-            DrawerItem("Korpa", R.drawable.meni_korpa, CartActivity:: class.java)
-            DrawerItem("Profil", R.drawable.meni_profil, ProfileActivity:: class.java)
-        }
-    }
+
 
     @Composable
     fun Greeting(name: String, modifier: Modifier = Modifier) {
@@ -279,57 +182,7 @@ class MainActivity : ComponentActivity() {
             FooterSection()
         }
     }
-    @Composable
-    fun HeaderSection(drawerState: DrawerState, scope: CoroutineScope) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color(0xFFF3DCE2))
-                .padding(horizontal = 16.dp, vertical = 12.dp)
-                .height(36.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.meni),
-                    contentDescription = "Meni",
-                    modifier = Modifier
-                        .size(28.dp)
-                        .clickable {
-                            scope.launch {
-                                drawerState.open()
-                            }
-                        },
-                    tint = Color.DarkGray
-                )
 
-
-
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.logo_veci),
-                        contentDescription = "Logo",
-                        modifier = Modifier
-                            .height(103.dp)
-                            .padding(end = 8.dp)
-                    )
-
-                    Text(
-                        text = "Trenuci za pamćenje",
-                        fontSize = 24.sp,
-                        fontFamily = FontFamily(Font(R.font.italianno_regular)),
-                        color = Color.Black,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
-            }
-        }
-    }
     @Composable
     fun PromotionsSection(promotions: List<Promotion>, paused: Boolean) {
         if(promotions.isNotEmpty()){
