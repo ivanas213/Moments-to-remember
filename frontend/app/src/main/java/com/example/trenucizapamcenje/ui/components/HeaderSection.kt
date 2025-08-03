@@ -1,5 +1,6 @@
 package com.example.trenucizapamcenje.ui.components
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,18 +18,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.trenucizapamcenje.MainActivity
 import com.example.trenucizapamcenje.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
 fun HeaderSection(drawerState: DrawerState, scope: CoroutineScope) {
+    val context = LocalContext.current
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -57,7 +61,11 @@ fun HeaderSection(drawerState: DrawerState, scope: CoroutineScope) {
 
 
             Row(
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.clickable{
+                    val intent = Intent(context, MainActivity::class.java)
+                    context.startActivity(intent)
+                }
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.logo_veci),

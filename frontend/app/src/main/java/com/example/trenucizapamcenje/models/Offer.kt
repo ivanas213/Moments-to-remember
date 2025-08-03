@@ -7,5 +7,5 @@ data class Offer(
     val minGuests: Int,
     val maxGuests: Int,
     val price: Int,
-    val hall: Hall                
+    val hall: Hall
 )

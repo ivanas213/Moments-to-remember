@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import com.example.trenucizapamcenje.models.Event
+import com.example.trenucizapamcenje.models.Offer
 import com.example.trenucizapamcenje.models.Promotion
 import com.example.trenucizapamcenje.models.User
 import retrofit2.Call
@@ -21,4 +22,9 @@ interface RetrofitInterface {
 
     @GET("/event/getAll")
     fun getEvents():Call<List<Event>>
+
+    @GET("/offer/getAll")
+    fun getOffers():Call<List<Offer>>
+
+
 }
