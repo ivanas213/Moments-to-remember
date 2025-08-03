@@ -10,4 +10,6 @@ object Constants {
     const val phoneNumber = "Telefon: +381 64 123 45 67"
     const val emailAddress = "Email adresa: trenutcizapamcenje@gmail.com"
     const val workingTime = "Radno vreme :  Ponedeljak–Petak, 8–20 h"
+    const val name = "Trenuci za pamćenje"
+    const val nameCut = "Trenuci\n za pamćenje"
 }

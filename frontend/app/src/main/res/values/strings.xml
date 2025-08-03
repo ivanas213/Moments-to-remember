@@ -3,4 +3,8 @@
     <string name="title_activity_mainnnnn">MainnnnnActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_event">EventActivity</string>
+    <string name="title_activity_offers">OffersActivity</string>
+    <string name="title_activity_notifications">NotificationsActivity</string>
+    <string name="title_activity_cart">CartActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 </resources>
