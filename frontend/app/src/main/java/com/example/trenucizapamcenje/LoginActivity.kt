@@ -107,7 +107,7 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
                 .fillMaxSize()
                 .padding(top = 31.dp),) {
                 Text(
-                    text = "Dobrodošli",
+                    text = Constants.welcome,
                     modifier = Modifier.fillMaxWidth(),
                     fontFamily = FontFamily(Font(R.font.inter_28pt_regular)),
                     fontSize = 32.sp,

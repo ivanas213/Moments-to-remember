@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -66,190 +67,206 @@ class ProfileActivity : ComponentActivity() {
         val sharedPrefs = getSharedPreferences(Constants.prefName, Context.MODE_PRIVATE)
 
         val gson = Gson()
-        val offerJson = sharedPrefs.getString(Constants.prefCurrentUser, null)
+        val userJson = sharedPrefs.getString(Constants.prefCurrentUser, null)
 
-        val user = if (offerJson != null) {
-            gson.fromJson(offerJson, User::class.java)
+        val user = if (userJson != null) {
+            gson.fromJson(userJson, User::class.java)
         } else {
             null
         }
         setContent {
-            setContent {
-                val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-                val scope = rememberCoroutineScope()
-                val isDrawerOpen = drawerState.isOpen
-                MojaTema {
-                    ModalNavigationDrawer(
-                        drawerState = drawerState,
-                        drawerContent = {
-                            DrawerContent(drawerState, scope)
-                        },
+            val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+            val scope = rememberCoroutineScope()
+            val isDrawerOpen = drawerState.isOpen
+            MojaTema {
+                ModalNavigationDrawer(
+                    drawerState = drawerState,
+                    drawerContent = {
+                        DrawerContent(drawerState, scope)
+                    },
 
-                        ) {
-                        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                            Box(Modifier.fillMaxSize().graphicsLayer {
-                                alpha = if (isDrawerOpen) 0.5f else 1f
-                            }
-                                .blur(radius = if (isDrawerOpen) 12.dp else 0.dp)
-                                .clickable(enabled = !isDrawerOpen) {}){
-                                MainUser(innerPadding, drawerState, scope, user)
-                            }
-
+                    ) {
+                    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                        Box(Modifier.fillMaxSize().graphicsLayer {
+                            alpha = if (isDrawerOpen) 0.5f else 1f
                         }
+                            .blur(radius = if (isDrawerOpen) 12.dp else 0.dp)
+                            .clickable(enabled = !isDrawerOpen) {}) {
+                            MainUser(innerPadding, drawerState, scope, user)
+                        }
+
                     }
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting6(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview5() {
-    MojaTema {
+    @Composable
+    fun Greeting6(name: String, modifier: Modifier = Modifier) {
+        Text(
+            text = "Hello $name!",
+            modifier = modifier
+        )
     }
-}
 
-@Composable
-fun MainUser(innerPadding: PaddingValues, drawerState: DrawerState, scope: CoroutineScope, user: User?){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(innerPadding)
-
-    )
-    {
-        HeaderSection(drawerState, scope)
-        ProfileScreen(user)
+    @Preview(showBackground = true)
+    @Composable
+    fun GreetingPreview5() {
+        MojaTema {
+        }
     }
-}
 
-@Composable
-fun ProfileScreen(user: User?) {
-    val context = LocalContext.current
-    Box(
-        modifier = Modifier
-            .fillMaxSize(),
-        contentAlignment = Alignment.Center
+    @Composable
+    fun MainUser(
+        innerPadding: PaddingValues,
+        drawerState: DrawerState,
+        scope: CoroutineScope,
+        user: User?
     ) {
-        Card(
-            shape = RoundedCornerShape(40.dp),
-            elevation = CardDefaults.cardElevation(8.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
+        Column(
             modifier = Modifier
-                .padding(16.dp)
-                .width(300.dp)
+                .fillMaxSize()
+                .padding(innerPadding)
+
+        )
+        {
+            HeaderSection(drawerState, scope)
+            ProfileScreen(user)
+        }
+    }
+
+    @Composable
+    fun ProfileScreen(user: User?) {
+        val context = LocalContext.current
+        Box(
+            modifier = Modifier
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
         ) {
-            Column(
+            Card(
+                shape = RoundedCornerShape(40.dp),
+                elevation = CardDefaults.cardElevation(8.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
                 modifier = Modifier
-                    .padding(24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .padding(16.dp)
+                    .width(300.dp)
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile),
-                    contentDescription = null,
+                Column(
                     modifier = Modifier
-                        .size(64.dp)
-                        .padding(bottom = 8.dp)
-                )
-
-                Text(
-                    text = Constants.myProfile,
-                    fontSize = 24.sp,
-                    fontFamily = FontFamily(
-                        Font(R.font.roboto_bold)
-                    ),
-                    color = DarkPink
-                )
-
-                HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 12.dp, horizontal = 6.dp),
-                    thickness = 1.dp,
-                    color = Color.Gray
-                )
-
-                ProfileRow(Constants.name, user?.first_name ?: "")
-                ProfileRow(Constants.surname, user?.last_name ?:"" )
-                ProfileRow(Constants.address, user?.address ?:"" )
-                ProfileRow(Constants.contactPhone, user?.phone_number ?:"" )
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                Button(
-                    onClick = {
-                        val intent = Intent(context, ChangeDataActivity::class.java)
-                        context.startActivity(intent)
-                    },
-                    shape = RoundedCornerShape(50),
-                    colors = ButtonDefaults.buttonColors(containerColor = PinkButtonChangeData, contentColor = Color.Black),
-                    modifier = Modifier.fillMaxWidth(0.75f)
-                ) {
-                    Text(Constants.changeData)
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Button(
-                    onClick = {
-                        val intent = Intent(context, ChangePasswordActivity::class.java)
-                        context.startActivity(intent)
-                              },
-                    shape = RoundedCornerShape(50),
-                    colors = ButtonDefaults.buttonColors(containerColor = PinkButtonChangeData, contentColor = Color.Black),
-                    modifier = Modifier.fillMaxWidth(0.75f)
-                ) {
-                    Text(Constants.changePassword)
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                TextButton(
-                    onClick = {
-                        val sharedPref = context.getSharedPreferences(Constants.prefName, Context.MODE_PRIVATE)
-                        sharedPref.edit { clear() }
-                        val intent = Intent(context, LoginActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        context.startActivity(intent)
-                    }
+                        .padding(24.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Image(
-                    painter = painterResource(id = R.drawable.odjava),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(48.dp)
-                        .padding(bottom = 8.dp)
+                        painter = painterResource(id = R.drawable.profile),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(64.dp)
+                            .padding(bottom = 8.dp)
                     )
-                    Spacer(modifier = Modifier.width(4.dp))
-                    Text(text = Constants.logout, color = Color.Black)
+
+                    Text(
+                        text = Constants.myProfile,
+                        fontSize = 24.sp,
+                        fontFamily = FontFamily(
+                            Font(R.font.roboto_bold)
+                        ),
+                        color = DarkPink
+                    )
+
+                    HorizontalDivider(
+                        modifier = Modifier.padding(vertical = 12.dp, horizontal = 6.dp),
+                        thickness = 1.dp,
+                        color = Color.Gray
+                    )
+
+                    ProfileRow(Constants.name, user?.first_name ?: "")
+                    ProfileRow(Constants.surname, user?.last_name ?: "")
+                    ProfileRow(Constants.address, user?.address ?: "")
+                    ProfileRow(Constants.contactPhone, user?.phone_number ?: "")
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Button(
+                        onClick = {
+                            val intent = Intent(context, ChangeDataActivity::class.java)
+                            context.startActivity(intent)
+                        },
+                        shape = RoundedCornerShape(50),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = PinkButtonChangeData,
+                            contentColor = Color.Black
+                        ),
+                        modifier = Modifier.fillMaxWidth(0.75f)
+                    ) {
+                        Text(Constants.changeData)
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Button(
+                        onClick = {
+                            val intent = Intent(context, ChangePasswordActivity::class.java)
+                            context.startActivity(intent)
+                        },
+                        shape = RoundedCornerShape(50),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = PinkButtonChangeData,
+                            contentColor = Color.Black
+                        ),
+                        modifier = Modifier.fillMaxWidth(0.75f)
+                    ) {
+                        Text(Constants.changePassword)
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    TextButton(
+                        onClick = {
+                            val sharedPref = context.getSharedPreferences(
+                                Constants.prefName,
+                                Context.MODE_PRIVATE
+                            )
+                            sharedPref.edit { clear() }
+                            val intent = Intent(context, LoginActivity::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            context.startActivity(intent)
+                        }
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.odjava),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(48.dp)
+                                .padding(bottom = 8.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(text = Constants.logout, color = Color.Black)
+                    }
                 }
             }
         }
     }
-}
 
-@Composable
-fun ProfileRow(label: String, value: String) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 2.dp, horizontal = 20.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyMedium
-        )
-        Text(
-            text = value,
-            style = MaterialTheme.typography.bodyMedium
-        )
+    @Composable
+    fun ProfileRow(label: String, value: String) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 2.dp, horizontal = 20.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
     }
+
+
 }

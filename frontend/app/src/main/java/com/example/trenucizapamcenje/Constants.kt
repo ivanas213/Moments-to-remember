@@ -29,4 +29,11 @@ object Constants {
     const val changeData = "Izmena podataka"
     const val changePassword = "Izmena lozinke"
     const val prefCurrentUser = "Current user"
+    const val undo = "Otkaži"
+    const val save = "Sačuvaj"
+    const val welcome = "Dobro došli"
+    const val titleChangePassword = "Promena lozinke"
+    const val inputPassword = "Nova lozinka:"
+    const val inputPasswordAgain = "Ponovo unesi:"
+    const val errorchangingPassword = "Greška: Lozinke se ne poklapaju"
 }
