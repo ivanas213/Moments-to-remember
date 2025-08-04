@@ -1,6 +1,7 @@
 package com.example.trenucizapamcenje
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -50,10 +51,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.edit
 import com.example.trenucizapamcenje.RetrofitInstance.retrofitInterface
 import com.example.trenucizapamcenje.models.User
 import com.example.trenucizapamcenje.ui.theme.LoginButtonBackgroundError
 import com.example.trenucizapamcenje.ui.theme.MojaTema
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -241,6 +244,14 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
                             call.enqueue(object : Callback<User> {
                                 override fun onResponse(call: Call<User>, response: Response<User>) {
                                     if (response.isSuccessful && response.body() != null) {
+                                        val sharedPrefs = context.getSharedPreferences(Constants.prefName, MODE_PRIVATE)
+                                        sharedPrefs.edit {
+
+                                            val gson = Gson()
+                                            val userJson = gson.toJson(response.body())
+
+                                            putString(Constants.prefCurrentUser, userJson)
+                                        }
                                         val intent = Intent(context, MainActivity::class.java)
                                         context.startActivity(intent)
                                     } else {
