@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "68cea4c39e1c563025c6960a"
+  },
+  "user": {
+    "$oid": "6873cd55b23f24ba2234b795"
+  },
+  "offer": {
+    "$oid": "688f8cdf6afeb52f0e8d97cc"
+  },
+  "value": 3,
+  "comment": "Okej.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68cea5999e1c563025c6962e"
+  },
+  "user": {
+    "$oid": "68cea44226cf34df325cba72"
+  },
+  "offer": {
+    "$oid": "688f8cdf6afeb52f0e8d97cc"
+  },
+  "value": 3,
+  "comment": "U redu.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68ceb2689e1c563025c6970c"
+  },
+  "user": {
+    "$oid": "6873cd55b23f24ba2234b795"
+  },
+  "offer": {
+    "$oid": "688f8e02e786104c68edd9e1"
+  },
+  "value": 5,
+  "comment": "Sve je odlicno proteklo. Sve preporuke!",
+  "__v": 0
+}]

@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "68ceaf519e1c563025c6969e"
+  },
+  "status": "accepted",
+  "new": false,
+  "date": "24.1.2025 ",
+  "offer": {
+    "$oid": "688f8cdf6afeb52f0e8d97cc"
+  },
+  "user": {
+    "$oid": "6873cd55b23f24ba2234b795"
+  },
+  "guests": 100,
+  "createdAt": {
+    "$date": "2025-09-20T13:42:41.945Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-20T14:20:22.761Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68ceb7db9e1c563025c6972f"
+  },
+  "status": "rejected",
+  "new": true,
+  "date": "12.2.2025",
+  "offer": {
+    "$oid": "688f8cdf6afeb52f0e8d97cc"
+  },
+  "user": {
+    "$oid": "6873cd55b23f24ba2234b795"
+  },
+  "guests": 50,
+  "createdAt": {
+    "$date": "2025-09-20T14:19:07.740Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-20T14:25:25.575Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68ceb8cc9e1c563025c69755"
+  },
+  "status": "rejected",
+  "new": false,
+  "date": "21.3.2026",
+  "offer": {
+    "$oid": "688f8e02e786104c68edd9e1"
+  },
+  "user": {
+    "$oid": "68cea44226cf34df325cba72"
+  },
+  "guests": 100,
+  "createdAt": {
+    "$date": "2025-09-20T14:23:08.430Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-20T14:26:24.663Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68cec0bd9e1c563025c6978e"
+  },
+  "status": "cart",
+  "new": true,
+  "date": "12.2.2025",
+  "offer": {
+    "$oid": "688f8cdf6afeb52f0e8d97cc"
+  },
+  "user": {
+    "$oid": "6873cd55b23f24ba2234b795"
+  },
+  "guests": 50,
+  "createdAt": {
+    "$date": "2025-09-20T14:57:01.463Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-20T14:57:01.463Z"
+  },
+  "__v": 0
+}]

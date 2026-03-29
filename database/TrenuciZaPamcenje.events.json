@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "688dfd8d30b60144220a9181"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754135949/dogadjaji_slike/d8y1jvw2y2gq1df5ywnc.png",
+  "title": "Milicino i Stefanovo venčanje",
+  "date": "24.07.2024.",
+  "description": "Milica i Stefan su se venčali u prelepoj bašti okruženoj cvećem i prijateljima. Nakon ceremonije, proslava se nastavila u elegantnom restoranu uz muziku i ples. Gosti su uživali u svečanom meniju, torti i emotivnim govorima mladenaca.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "688e1c264966afdcf6c76c08"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754143781/dogadjaji_slike/aiquwg2jkan1itz8doj0.png",
+  "title": "Kalinino krštenje i prvi rođendan",
+  "date": "17.10.2024.",
+  "description": "Kalinino krštenje obavljeno je u crkvi u prisustvu  porodice i prijatelja. Ceremonija je protekla uz  svečane molitve i blagoslove sveštenika. Nakon krštenja, gosti su se okupili na ručku u toplom porodičnom okruženju. Proslava je bila  ispunjena radošću i dečijim smehom.",
+  "__v": 0
+}]

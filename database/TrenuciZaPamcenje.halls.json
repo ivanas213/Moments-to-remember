@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "688f6360b8eb1b6dd1017f16"
+  },
+  "name": "Perla",
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754227551/sale_slike/tvdwyueyl80c2q4topys.jpg",
+  "capacity": 200,
+  "address": "Maksima Gorkog 12, Beograd",
+  "description": "Sala Perla je idealan izbor za parove koji žele elegantno i nezaboravno venčanje. Prostran i luksuzno uređen ambijent prima do 300 zvanica i pruža savršenu kulisu za vaš poseban dan. Elegantni enterijer, pažljivo osmišljeni detalji i sofisticirana atmosfera stvaraju predivan prostor za slavlje ljubavi.Sala je opremljena modernim svetlosnim i zvučnim sistemima koji obezbeđuju besprekoran doživljaj muzike i zabave, dok veliki prozori unose prirodnu svetlost i dodatno ulepšavaju svečani trenutak. U večernjim satima, ambijentalno osvetljenje doprinosi romantičnom ugođaju.Naše profesionalno osoblje posvećeno je svakom detalju – od dekoracije po vašim željama, do pažljivo biranog gastronomskog menija. U Sali Perla, svaki trenutak vašeg venčanja odiše elegancijom, toplinom i vrhunskom uslugom.Dozvolite nam da vaš najlepši dan učinimo zaista nezaboravnim.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "688f7ec0b8eb1b6dd1017f18"
+  },
+  "name": "Bambi",
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754234559/sale_slike/nlalcwyjjylszae9z7p6.png",
+  "capacity": 100,
+  "address": "Nikole Pasica 18, Beograd",
+  "description": "Sala Bambi je savršeno mesto za proslavu prvog rođendana – veselo, toplo i potpuno prilagođeno najmlađima i njihovim gostima. U prijatnom i bezbednom ambijentu, uz šarenilo balona, razigrane detalje i vedru atmosferu, svaki trenutak postaje bajka za vaše dete i draga uspomena za celu porodicu.Naša sala prima do 100 zvanica i nudi udoban prostor za igru, druženje i slavlje. Poseban kutak za decu, animatori, kao i tematska dekoracija po vašoj želji, omogućavaju da slavljenik i mali gosti uživaju u svakom trenutku. Za roditelje i odrasle zvanice obezbeđujemo udoban sedenje, bogat meni i opuštenu atmosferu.Uz nas, planiranje proslave postaje lako i bez stresa – od osmišljavanja teme, preko dekoracije, do muzike i torte. U sali Bambi, prvi rođendan postaje čarobna proslava puna smeha, igre i radosti.Dozvolite nam da zajedno stvorimo lepe uspomene koje ćete pamtiti zauvek!",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "688f7f5cb8eb1b6dd1017f1a"
+  },
+  "name": "Krem",
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754234715/sale_slike/vrfgfpiainae1wzh8pjz.png",
+  "capacity": 120,
+  "address": "Desanke Maksimovic 24, Beograd",
+  "description": "Sala Krem je posebno osmišljena za proslave poput krštenja – događaja koji spaja porodičnu tradiciju, ljubav i radost. Elegantna, svetla i prijatna, ova sala odiše toplinom i svečanošću, pružajući idealan ambijent za prvo veliko porodično okupljanje vašeg deteta.Kapacitet sale od 120 gostiju omogućava intimnu, ali prostranu atmosferu, gde svaki gost može uživati u udobnosti i pažljivo osmišljenom ambijentu. Neutralne boje enterijera i suptilna dekoracija lako se prilagođavaju bilo kojoj tematskoj ili tradicionalnoj postavci – bilo da želite jednostavnu eleganciju ili nežne detalje u duhu krštenja.Naše iskusno osoblje pobrinuće se da svaki detalj bude savršen – od rasporeda sedenja, dekoracije, do izbora menija prilagođenog svim generacijama. Uz profesionalnu uslugu i posvećenost, vi možete potpuno uživati u ovom važnom danu sa svojim najmilijima.Sala Krem – mesto gde tradicija i emocija postaju uspomena za ceo život.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "688f7fafb8eb1b6dd1017f1c"
+  },
+  "name": "Imperija",
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754234798/sale_slike/w9kwtfmymc3w9hdc7pkc.png",
+  "capacity": 500,
+  "address": "Jovana Cvijica 24, Beograd",
+  "description": "Sala Imperija je simbol glamura i svečanosti – savršeno mesto za proslave koje se pamte ceo život. Bilo da slavite ulazak u svet odraslih ili sudbonosno \"da\", ova prostrana i moderno uređena sala pruža spektakularan ambijent za najvažnije trenutke.Kapacitet do 500 gostiju omogućava vam da se okružite svim dragim ljudima, dok luksuzni enterijer, efekti rasvete i savremena tehnička oprema stvaraju atmosferu dostojnu imperatorske proslave. Prostrani plesni podijum i profesionalni ozvučeni sistem garantuju odličan provod – bilo da je u pitanju energično punoletstvo ili elegantna svadbena večera.U saradnji s vama, naše osoblje vodi brigu o svakom detalju – od uređenja sale prema vašim željama, preko svečanog menija, do koordinacije celokupne večeri. Vi birate stil – mi ga pretvaramo u stvarnost.Sala Imperija – jer posebni trenuci zaslužuju kraljevski doček.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "688f806eb8eb1b6dd1017f1e"
+  },
+  "name": "Grand",
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754234990/sale_slike/gfqoaf2ijx9mrjztcs5n.png",
+  "capacity": 200,
+  "address": "Marijane Gregoran 24, Beograd",
+  "description": "Sala Grand predstavlja spoj elegancije, funkcionalnosti i profesionalizma – savršen prostor za organizaciju poslovnih proslava, korporativnih događaja, seminara, konferencija i svečanih večera. Moderan enterijer i besprekorna usluga stvaraju ambijent koji ostavlja snažan utisak na partnere, klijente i zaposlene.Kapacitet sale od 200 gostiju omogućava organizaciju događaja različitih formata – od manjih koktel prijema, preko godišnjih proslava firmi, do prezentacija i formalnih večera. Sala je opremljena savremenim audiovizuelnim sistemima, projektorima i mikrofonima, a fleksibilni raspored sedenja prilagođava se vašim potrebama.Na raspolaganju su i usluge keteringa, dekoracije u skladu s brendom ili temom događaja, kao i stručno osoblje koje brine o svakom detalju kako bi sve proteklo besprekorno i bez stresa.Sala Grand – prostor u kom se vaša poslovna vizija pretvara u događaj vredan pamćenja.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "688f8bbd4bef462d444d524d"
+  },
+  "name": "Galija",
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754237884/sale_slike/jtpwclaxlyvrd7wrhxad.png",
+  "capacity": 60,
+  "address": "Svetog Save 24, Beograd",
+  "description": "Sala Galija je stvorena za nezaboravne devojačke večeri – veče kada sve staje, a druženje, smeh i slavlje stavljaju buduću mladu u centar pažnje. Uz moderan dizajn, opuštenu atmosferu i diskretni glamur, Galija pruža idealan prostor za veselo žensko veče puno emocija i zabave.Sala prima do 60 gostiju i prilagođena je manjim, ali upečatljivim okupljanjima. Bilo da planirate sofisticirani koktel party, tematsku žurku ili veče uz DJ-a i ples – Galija nudi sve što vam je potrebno za sjajan provod: kvalitetno ozvučenje, rasvetu, bar, i prostor za igru i fotografisanje.Naše ljubazno osoblje pomoći će vam da sve bude kao iz snova – od dekoracije po vašoj zamisli, do osveženja i laganih zalogaja, sve sa stilom i merom. Vi donesite dobru energiju i najbliže prijateljice – mi ćemo se pobrinuti za sve ostalo.Sala Galija – jer svaka mlada zaslužuje nezaboravnu devojačku avanturu.",
+  "__v": 0
+}]

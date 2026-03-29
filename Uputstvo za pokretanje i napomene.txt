@@ -1,0 +1,5 @@
+JSON fajlovi iz foldera database treba da se uvezu u MongoDB bazu na sledećoj adresi: mongodb://127.0.0.1:27017/TrenuciZaPamcenje .
+
+Uputstvo za pokretanje mobilne aplikacije preko mobilnog telefona: Mobilni telefon i racunar moraju biti u istoj wifi mrezi. Potrebno je pronaci ip adresu racunara i dodeliti je kao vrednost konstanti SERVER_IP_ADDRESS koja se nalazi u klasi Constants. Takodje potrebno je ukljuciti je i u network_security_config.xml, na isti nacin kao sto su u njoj vec navedene neke adrese. Nakon toga moguce je povezati telefon sa racunarom preko usb kabla i dozvoliti usb debugging u developer opcijama na telefonu. Takodje potrebno e pokrenuti backend servis preko komande npm run start da bi aplikacija mogla da komunicira sa backendom.
+
+Uputstvo za podesavanje backenda: Backend cuva slike tako sto ih skladisti koristeci cloudinary. Potrebno je izmeniti .env fajl i upisati validne podatke u njega kako bi mogle da se dodaju nove slike. 

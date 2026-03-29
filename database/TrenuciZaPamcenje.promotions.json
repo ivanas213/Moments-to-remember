@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "688d0cae31180300ca70adab"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/promo_slike/qag7qccggbydbnxeefgk.png\n",
+  "description": "",
+  "__v": 0,
+  "web": false
+},
+{
+  "_id": {
+    "$oid": "688d0db231180300ca70adad"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754074546/promo_slike/trhhws9hrklgpokkdbpe.png",
+  "description": "",
+  "__v": 0,
+  "web": false
+},
+{
+  "_id": {
+    "$oid": "688d0dbe31180300ca70adaf"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1754074558/promo_slike/yv4y3hydps9qui3u3wud.png",
+  "description": "",
+  "__v": 0,
+  "web": false
+},
+{
+  "_id": {
+    "$oid": "68c470fcc324b4bde9256c41"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1757704443/promo_slike/skqgjfkvos2traykifa2.png",
+  "description": "",
+  "__v": 0,
+  "web": true
+},
+{
+  "_id": {
+    "$oid": "68c472ffc324b4bde9256c45"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1757704959/promo_slike/mkkfeskbhlsmgp9ni1cp.png",
+  "description": "",
+  "__v": 0,
+  "web": true
+},
+{
+  "_id": {
+    "$oid": "68c47346c324b4bde9256c49"
+  },
+  "imageUrl": "https://res.cloudinary.com/dzpmestfh/image/upload/v1757705029/promo_slike/rmrjk7nwd871lh3dwz52.png",
+  "description": "",
+  "__v": 0,
+  "web": true
+}]

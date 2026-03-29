@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-italianno: var(--font-italianno);
+  --font-lato: var(--font-lato);
+  --font-lunasima: var(--font-lunasima);
+  --font-montserrat: var(--font-montserrat);
+  --font-cormorant-garamond: var(--font-cormorant-garamond);
+  --font-nunito: var(--font-nunito);
+  --font-roboto: var(--font-roboto);
+  --color-brand: #F7E2E8;  
+  --color-pink-stroke: #D4A8C4;
+  --color-pink-button: #D29FCB;
+  --color-error-text: #DD508B;
+  --color-pink-menu-item: #BE95AD;
+  --color-pink-header: #DDCBD6;
+  --color-pink-border: #872E62;
+  --color-pink-event: #CCA6BC;
+  --color-pink-text-footer: #561E3E;
+  --color-pink-selected: #C36A9E;
+  --color-pink-page: #BE95AD;
+  --color-pink-page-selected: #CC82AD;
+  --color-pink-light: #EBD4DF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+

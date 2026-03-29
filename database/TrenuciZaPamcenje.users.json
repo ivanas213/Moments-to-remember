@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "6873cd55b23f24ba2234b795"
+  },
+  "address": "Ustanicka 5",
+  "email": "marko@gmail.com",
+  "first_name": "Marko",
+  "last_name": "Marković",
+  "password": "11111111",
+  "phone_number": "061234124",
+  "role": "buyer"
+},
+{
+  "_id": {
+    "$oid": "68bdbe201fa77fee19a1601d"
+  },
+  "email": "admin@gmail.com",
+  "password": "222222",
+  "first_name": "Aleksa",
+  "last_name": "Aleksic",
+  "address": "Ustanicka 15",
+  "phone_number": "061234567",
+  "role": "organiser"
+},
+{
+  "_id": {
+    "$oid": "68cea44226cf34df325cba72"
+  },
+  "email": "petar@gmail.com",
+  "password": "333333",
+  "first_name": "Petar",
+  "last_name": "Petrovic",
+  "address": "Bulevar kralja Aleksandra 21",
+  "phone_number": "061234321",
+  "role": "buyer"
+}]
